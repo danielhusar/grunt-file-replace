@@ -8,6 +8,8 @@
 
 'use strict';
 
+var fs = require('fs');
+
 module.exports = function (grunt) {
 
   // Please see the Grunt documentation for more information regarding task
@@ -15,37 +17,46 @@ module.exports = function (grunt) {
 
   grunt.registerMultiTask('fileReplace', 'Replaces the files from local or network source.', function () {
 
-    // Merge task-specific and/or target-specific options with these defaults.
-    var options = this.options({
-      punctuation: '.',
-      separator: ', '
-    });
+    var files = this.data;
+    var done = this.async();
 
-    // Iterate over all specified file groups.
-    this.files.forEach(function (file) {
-      // Concat specified files.
-      var src = file.src.filter(function (filepath) {
-        // Warn on and remove invalid source files (if nonull was set).
-        if (!grunt.file.exists(filepath)) {
-          grunt.log.warn('Source file "' + filepath + '" not found.');
-          return false;
-        } else {
-          return true;
+    var copyLocalFile = function(source, target, cb) {
+      var cbCalled = false;
+
+      var rd = fs.createReadStream(source);
+      rd.on("error", function(err) {
+        done(err);
+      });
+      var wr = fs.createWriteStream(target);
+      wr.on("error", function(err) {
+        done(err);
+      });
+      wr.on("close", function(ex) {
+        done();
+      });
+      rd.pipe(wr);
+
+      function done(err) {
+        if (!cbCalled) {
+          cb(err);
+          cbCalled = true;
         }
-      }).map(function (filepath) {
-        // Read file source.
-        return grunt.file.read(filepath);
-      }).join(grunt.util.normalizelf(options.separator));
+      }
+    };
 
-      // Handle options.
-      src += options.punctuation;
-
-      // Write the destination file.
-      grunt.file.write(file.dest, src);
-
-      // Print a success message.
-      grunt.log.writeln('File "' + file.dest + '" created.');
+    Object.keys(files).forEach(function(key) {
+      copyLocalFile(key, files[key], function(err){
+        if(!err){
+          grunt.log.ok([files[key] + ' was replaced by: ' + key]);
+        } else {
+          grunt.log.error([key + ' probably doesnt exists.']);
+        }
+        //done();
+      });
     });
+
+
+
   });
 
 };
