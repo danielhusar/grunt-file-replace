@@ -29,8 +29,8 @@ module.exports = function (grunt) {
     // Configuration to be run (and then tested).
     fileReplace: {
       patterns: {
-        'test/expected/local': 'test/fixtures/123',
-        'test/expected/remote': 'https://raw.github.com/danielhusar/grunt-file-replace/master/test/fixtures/123'
+        './test/expected/local': './test/fixtures/123',
+        './test/expected/remote': 'https://raw.github.com/danielhusar/grunt-file-replace/master/test/fixtures/123'
       }
     },
 
