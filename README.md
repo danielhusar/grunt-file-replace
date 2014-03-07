@@ -1,6 +1,6 @@
-# fileReplace
+# fileReplace [![Build Status](https://travis-ci.org/danielhusar/grunt-file-replace.png)](https://travis-ci.org/danielhusar/grunt-file-replace) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
-> Replaces the files from local or network source.
+> Replaces the files on your harddrive from local or network source.
 
 ## Getting Started
 This plugin requires Grunt.
@@ -21,63 +21,17 @@ grunt.loadNpmTasks('fileReplace');
 
 ### Overview
 In your project's Gruntfile, add a section named `fileReplace` to the data object passed into `grunt.initConfig()`.
+Remote files must beggin with http or https
+
+Key of the object is local file, value is remote file to grap and put on the place where key is located.
 
 ```js
 grunt.initConfig({
   fileReplace: {
-    options: {
-      // Task-specific options go here.
-    },
-    your_target: {
-      // Target-specific file lists and/or options go here.
-    },
-  },
-})
-```
-
-### Options
-
-#### options.separator
-Type: `String`
-Default value: `',  '`
-
-A string value that is used to do something with whatever.
-
-#### options.punctuation
-Type: `String`
-Default value: `'.'`
-
-A string value that is used to do something else with whatever else.
-
-### Usage Examples
-
-#### Default Options
-In this example, the default options are used to do something with whatever. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result would be `Testing, 1 2 3.`
-
-```js
-grunt.initConfig({
-  fileReplace: {
-    options: {},
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
-  },
-})
-```
-
-#### Custom Options
-In this example, custom options are used to do something else with whatever else. So if the `testing` file has the content `Testing` and the `123` file had the content `1 2 3`, the generated result in this case would be `Testing: 1 2 3 !!!`
-
-```js
-grunt.initConfig({
-  fileReplace: {
-    options: {
-      separator: ': ',
-      punctuation: ' !!!',
-    },
-    files: {
-      'dest/default_options': ['src/testing', 'src/123'],
-    },
+    patterns: {
+      'test/expected/local': 'test/fixtures/123',
+      'test/expected/remote': 'https://raw.github.com/danielhusar/grunt-file-replace/master/test/fixtures/123'
+    }
   },
 })
 ```
