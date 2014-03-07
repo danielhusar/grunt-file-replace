@@ -79,6 +79,7 @@ module.exports = function (grunt) {
           grunt.log.ok([key + ' was replaced by: ' + files[key]]);
         } else {
           grunt.log.error([files[key] + ' probably doesnt exists.']);
+          console.dir(err);
         }
         if(--total === 0){
           done();
