@@ -1,4 +1,4 @@
-# fileReplace [![Build Status](https://travis-ci.org/danielhusar/grunt-file-replace.png)](https://travis-ci.org/danielhusar/grunt-file-replace) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
+# grunt-file-replace [![Build Status](https://travis-ci.org/danielhusar/grunt-file-replace.png)](https://travis-ci.org/danielhusar/grunt-file-replace) [![Built with Grunt](https://cdn.gruntjs.com/builtwith.png)](http://gruntjs.com/)
 
 > Replaces the files on your harddrive from local or network source.
 

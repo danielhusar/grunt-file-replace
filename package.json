@@ -1,5 +1,5 @@
 {
-  "name": "filereplace",
+  "name": "grunt-file-replace",
   "version": "0.0.1",
   "description": "Replaces the files from local or network source.",
   "homepage": "https://github.com/danielhusar/grunt-file-replace",
