@@ -19,8 +19,8 @@ exports.fileReplace = {
     expected = grunt.file.read('./test/expected/remote');
     test.equal(actual, expected, 'Remote file should be copied.');
 
-    fs.unlinkSync('./test/expected/local');
-    fs.unlinkSync('./test/expected/remote');
+    //fs.unlinkSync('./test/expected/local');
+    //fs.unlinkSync('./test/expected/remote');
 
     test.done();
   }
