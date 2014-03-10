@@ -15,13 +15,11 @@ exports.fileReplace = {
     var expected = grunt.file.read('./test/expected/local');
     var expected2 = grunt.file.read('./test/expected/remote');
 
-    setTimeout(function(){
-      test.equal(actual, expected, 'Local file should be copied.');
-      test.equal(actual, expected2, 'Remote file should be copied.');
-      fs.unlinkSync('./test/expected/local');
-      fs.unlinkSync('./test/expected/remote');
-      test.done();
-    }, 1000);
+    test.equal(actual, expected, 'Local file should be copied.');
+    test.equal(actual, expected2, 'Remote file should be copied.');
+    fs.unlinkSync('./test/expected/local');
+    fs.unlinkSync('./test/expected/remote');
+    test.done();
 
   }
 };
