@@ -1,6 +1,6 @@
 {
   "name": "grunt-file-replace",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Replaces the files from local or network source.",
   "homepage": "https://github.com/danielhusar/grunt-file-replace",
   "repository": "https://github.com/danielhusar/grunt-file-replace",
@@ -10,7 +10,9 @@
     "url": "https://github.com/danielhusar"
   },
   "keywords": [
-    "gruntplugin"
+    "gruntplugin",
+    "file",
+    "replace"
   ],
   "main": "Gruntfile.js",
   "engines": {
