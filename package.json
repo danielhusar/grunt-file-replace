@@ -1,6 +1,6 @@
 {
   "name": "grunt-file-replace",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Replaces the files from local or network source.",
   "homepage": "https://github.com/danielhusar/grunt-file-replace",
   "repository": "https://github.com/danielhusar/grunt-file-replace",
@@ -23,14 +23,16 @@
       "type": "MIT"
     }
   ],
+  "dependencies": {
+    "request": "*"
+  },
   "devDependencies": {
     "grunt-contrib-clean": "~0.5.0",
     "grunt-contrib-jshint": "~0.8.0",
     "grunt-contrib-nodeunit": "~0.3.0",
     "grunt": "~0.4.2",
     "jshint-stylish": "~0.1.5",
-    "load-grunt-tasks": "~0.3.0",
-    "request": "*"
+    "load-grunt-tasks": "~0.3.0"
   },
   "scripts": {
     "test": "grunt test"
